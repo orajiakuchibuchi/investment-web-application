@@ -1,0 +1,59 @@
+<div class="col-md-12">
+  <app-card cardTitle="BTC Account" blockClass="table-border-style" *ngIf="!isAdding">
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th>Address</th>
+          <th>Last updated</th>
+          <th>Copy</th>
+          <th>Update</th>
+          <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+            <ng-container  *ngIf="address?.length >0 && address[0]?.address">
+              <tr *ngFor="let add of address; let i = index;" class="t-list">
+                <td>{{add?.address}}</td>
+                <td>{{getTimeStamp(add?.updated_at)}}</td>
+                <td><button type="button" class="btn btn-dark" (click)="copy()">Copy</button>
+                </td>
+                <td>
+                  <button type="button" class="btn btn-success" (click)="isAdding = true;">Update</button>
+                </td>
+                <td>
+                  <button type="button" class="btn btn-danger" (click)="delete()">Delete</button>
+                </td>
+              </tr>
+          </ng-container>
+        </tbody>
+      </table>
+      <div class="col-12 text-center" *ngIf="address?.length <1 || !address[0]?.address">
+        <p>No USDT Available.</p>
+        <button class="btn btn-primary" (click)="isAdding = true;">Add BTC Address</button>
+      </div>
+    </div>
+  </app-card>
+  <app-card cardTitle="Add BTC Address" blockClass="table-border-style" *ngIf="isAdding">
+    <div>
+      <form method="POST" [formGroup]="addAddressForm" (ngSubmit)="onSubmit()"  enctype="multipart/form-data">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputAddress2">Address</label>
+            <input type="text" class="form-control" formControlName="address" id="inputAddress2" placeholder="Enter Name">
+            <p>Required</p>
+          </div>
+        </div>
+        <p *ngIf="message">{{message}}</p>
+        <button class="btn btn-primary event-btn m-2" type="submit" *ngIf="!validator_toast.success">
+          <span *ngIf="this.submitLoader" class="spinner-grow spinner-grow-sm" role="status"></span>
+          <span *ngIf="this.submitLoader" class="load-text"> Updating...</span>
+          <span *ngIf="!this.submitLoader" class="btn-text">Update</span>
+        </button>
+        <button class="btn btn-primary m-2" (click)="paste()">Paste</button>
+      </form>
+      <p *ngIf="validator_toast.message" class="success">{{validator_toast.message}}</p>
+    </div>
+
+  </app-card>
+</div>

@@ -1,0 +1,33 @@
+<div class="col-md-12">
+  <app-card cardTitle="Available plans" blockClass="table-border-style">
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th>#</th>
+          <th>Plan</th>
+          <th>Interest rate</th>
+          <th>Maturity</th>
+          <th>Min Amount</th>
+          <th>Max Amount</th>
+        </tr>
+        </thead>
+        <tbody>
+            <ng-container  *ngIf="plans?.length >0">
+              <tr *ngFor="let plan of plans; let i=index;" class="t-list">
+                <td>{{i+1}}</td>
+                <td>{{plan?.name}}</td>
+                <td>{{plan.interest + '%'}}</td>
+                <td>{{plan.maturity + ' Hours'}}</td>
+                <td>{{plan.min_amount}}</td>
+                <td>{{plan.max_amount}}</td>
+              </tr>
+          </ng-container>
+        </tbody>
+      </table>
+      <div class="col-12 text-center" *ngIf="plans?.length <1">
+        <p>No plan available</p>
+      </div>
+    </div>
+  </app-card>
+</div>

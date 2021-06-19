@@ -1,0 +1,46 @@
+<div class="col-md-12">
+  <app-card cardTitle="Withdraw Request" blockClass="table-border-style" *ngIf="investments.length > 0">
+    <form method="POST" [formGroup]="withdrawForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputAddress2">Select Investment</label>
+          <select id="invest" class="form-control" formControlName="investment" (change)="updateSeletedInvestMent()">
+            <option value="" selected>{{'Select Investment' | titlecase}}</option>
+            <option *ngFor="let invest of investments" value="{{invest.id}}">{{invest.plans.name + ' $ ' + invest.amount}}</option>
+          </select>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputAddress2">Payment Method</label>
+          <select id="inputState" class="form-control" formControlName="payment_method">
+            <option value="" selected>{{'Select Payment method' | titlecase}}</option>
+            <option value="BTC">{{'BTC' |titlecase}}</option>
+            <option value="ETH">{{'ETH' |titlecase}}</option>
+            <option value="ETH">{{'USDT' |titlecase}}</option>
+          </select>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputAddress2">Address to pay (important)</label>
+          <input type="text" class="form-control" id="inputAddress2" formControlName="paying_address" placeholder="Enter the address you are paying from">
+          <a (click)="paste()" href="javascript:void(0);">Paste from Clipboard</a>
+        </div>
+        <div class="form-group col-md-6" *ngIf="selectedInvestMent">
+          <label for="inputAddress2">Amount</label>
+          <input type="number" class="form-control" id="inputAddress2" disabled formControlName="amount" value="{{getRoi()}}">
+        </div>
+        <div class="col-12 text-center" *ngIf="validate().payment_method.valid">
+          <p *ngIf="message">{{message}}</p>
+          <button class="btn btn-primary event-btn m-2" type="submit" *ngIf="!validator_toast.success">
+            <span *ngIf="this.submitLoader" class="spinner-grow spinner-grow-sm" role="status"></span>
+            <span *ngIf="this.submitLoader" class="load-text"> Requesting...</span>
+            <span *ngIf="!this.submitLoader" class="btn-text">Request</span>
+          </button>
+          </div>
+      </div>
+    </form>
+
+    <p *ngIf="validator_toast.message" class="success">{{validator_toast.message}}</p>
+  </app-card>
+  <app-card cardTitle="Withdraw Request" blockClass="table-border-style" *ngIf="investments.length < 1">
+    <p>No Related Data</p>
+  </app-card>
+</div>
