@@ -1,0 +1,243 @@
+<div class="row">
+  <!-- conversion-section start -->
+  <div class="col-xl-12">
+    <app-card cardTitle="Price Highlight" [options]="false">
+      <iframe src="https://widget.coinlib.io/widget?type=horizontal_v2&theme=dark&pref_coin_id=1505&invert_hover=" width="100%" height="36px" scrolling="auto" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;"></iframe>
+    </app-card>
+    </div>
+  <div class="col-sm-12" *ngIf="user.role == '1'">
+    <div class="row no-gutters">
+
+      <div class="col-md-4 col-xl-4 col-sm-6" style="background: #c5d7ff;">
+        <app-card [hidHeader]="true">
+          <span>My Investment Balance</span>
+          <h3>{{card.investment_balance | currency}}</h3>
+        </app-card>
+      </div>
+      <div class="col-md-4 col-xl-4 col-sm-6" style="background: #c5d7ff;">
+        <app-card [hidHeader]="true">
+          <span>My Withdrawal profits</span>
+          <h3>{{card.withdrawal_balance | currency}}</h3>
+        </app-card>
+      </div>
+      <div class="col-md-4 col-xl-2 col-sm-6" style="background: #c5d7ff;">
+        <app-card [hidHeader]="true">
+          <span>Pending Investment</span>
+          <h3>{{card.pendingInvest}}</h3>
+        </app-card>
+      </div>
+      <div class="col-md-4 col-xl-2 col-sm-6" style="background: #c5d7ff;">
+        <app-card [hidHeader]="true">
+          <span>Pending Withrawals</span>
+          <h3>{{card.pendingWithdrawal}}</h3>
+        </app-card>
+      </div>
+      <div class="col-md-4 col-xl-4 col-sm-6" style="background: #c5d7ff;">
+        <app-card [hidHeader]="true">
+          <span>Total Investment</span>
+          <h3>{{card.investment}}</h3>
+        </app-card>
+      </div>
+      <div class="col-md-4 col-xl-4 col-sm-6" style="background: #c5d7ff;">
+        <app-card [hidHeader]="true">
+          <span>Total Withdrawals</span>
+          <h3>{{card.withdrawal}}</h3>
+        </app-card>
+      </div>
+      <div class="col-md-4 col-xl-2 col-sm-6" style="background: #c5d7ff;">
+        <app-card [hidHeader]="true">
+          <span>Available Plans</span>
+          <h3>{{card.plans}}</h3>
+        </app-card>
+      </div>
+      <div class="col-md-4 col-xl-2 col-sm-6" style="background: #c5d7ff;">
+        <app-card [hidHeader]="true">
+          <span>Double Investment</span>
+          <h3><button type="button" class="btn btn-primary" data-toggle="modal"
+            (click)="exampleModalPopoversLabel.show();"
+          class="btn btn-primary">{{card.double == '0' ? 'Activate' : 'Deactivate'}}</button></h3>
+        </app-card>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-12" *ngIf="user.role == '2'">
+    <div class="row no-gutters">
+      <div class="col-md-4 col-xl-4 col-sm-6" style="background: #c5d7ff;">
+        <app-card [hidHeader]="true">
+          <span>Profit Balance</span>
+          <h3>{{card.profit | currency}}</h3>
+        </app-card>
+      </div>
+      <div class="col-md-4 col-xl-4 col-sm-6" style="background: #c5d7ff;">
+        <app-card [hidHeader]="true">
+          <span>Investment Balance</span>
+          <h3>{{card.investment_balance | currency}}</h3>
+        </app-card>
+      </div>
+      <div class="col-md-4 col-xl-4 col-sm-6" style="background: #c5d7ff;">
+        <app-card [hidHeader]="true">
+          <span>Withdrawal Balance</span>
+          <h3>{{card.withdrawal_balance | currency}}</h3>
+        </app-card>
+      </div>
+      <div class="col-md-2 col-xl-2 col-sm-6" style="background: #c5d7ff;">
+        <app-card [hidHeader]="true">
+          <span>Pending Investment</span>
+          <h3>{{card.pendingInvest}}</h3>
+        </app-card>
+      </div>
+      <div class="col-md-2 col-xl-2 col-sm-6" style="background: #c5d7ff;">
+        <app-card [hidHeader]="true">
+          <span>Pending Withrawals</span>
+          <h3>{{card.pendingWithdrawal}}</h3>
+        </app-card>
+      </div>
+      <div class="col-md-2 col-xl-2 col-sm-6" style="background: #c5d7ff;">
+        <app-card [hidHeader]="true">
+          <span>Total Investment</span>
+          <h3>{{card.investment}}</h3>
+        </app-card>
+      </div>
+      <div class="col-md-2 col-xl-2 col-sm-6" style="background: #c5d7ff;">
+        <app-card [hidHeader]="true">
+          <span>Total Withdrawals</span>
+          <h3>{{card.withdrawal}}</h3>
+        </app-card>
+      </div>
+      <div class="col-md-2 col-xl-2 col-sm-3" style="background: #c5d7ff;">
+        <app-card [hidHeader]="true">
+          <span>Referral</span><br>
+          <button type="button" class="btn btn-primary" data-toggle="modal"
+            (click)="referralModalPopoversLabel.show();"
+          class="btn btn-primary">My referral code</button>
+        </app-card>
+      </div>
+      <div class="col-md-2 col-xl-2 col-sm-3" style="background: #c5d7ff; height: 96;">
+        <app-card [hidHeader]="true">
+          <span>Payment methods</span><br>
+          <div style="margin-top: 10px;">
+            <img src="https://img.icons8.com/officexs/16/000000/bitcoin.png" height="25" width="25" />
+            <img src="../../../assets/images/etf.png" height="25" width="25"/>
+
+          </div>
+        </app-card>
+      </div>
+      <!-- <div class="col-md-4 col-xl-2 col-sm-3" style="background: #c5d7ff;">
+        <app-card [hidHeader]="true">
+          <span>Double Investment</span>
+          <h3><button type="button" class="btn btn-primary" data-toggle="modal"
+            (click)="exampleModalPopoversLabel.show();"
+            class="btn btn-primary">{{pars(card.double) == 0 ? 'Activate' : Deactivate}}</button></h3>
+          </app-card>
+      </div> -->
+    </div>
+  </div>
+  <!-- conversion-section end -->
+  <div class="col-xl-12">
+    <app-card cardTitle="Real Time Chart" [options]="true">
+      <!-- <app-apex-chart chartID="daily-visitor-aa-cc" [chartConfig]="this.chartDB.dailyVisitorAACC" [xAxis]="dailyVisitorAxis"></app-apex-chart> -->
+      <iframe src="https://widget.coinlib.io/widget?type=chart&theme=dark&coin_id=859&pref_coin_id=1505" width="100%" height="536px" scrolling="auto" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;line-height:14px;"></iframe>
+    </app-card>
+  </div>
+  <!-- account-section end -->
+
+  <!-- customer overview start -->
+  <div class="col-md-12">
+    <app-card cardTitle="Investment and Withdrawal Monitor" cardClass="table-card" blockClass="p-0">
+      <perfect-scrollbar [style.max-height]="'362px'" *ngIf="bullBear.length > 0">
+        <table class="table table-hover m-b-0">
+          <thead>
+            <tr>
+
+              <th>
+                <span>Address
+                  <a class="help"><i class="feather icon-help-circle f-16"></i></a>
+                </span>
+              </th>
+              <th>
+                <span>Action
+                  <a class="help"><i class="feather icon-help-circle f-16"></i></a>
+                </span>
+              </th>
+              <th>
+                <span>Amount
+                  <a class="help"><i class="feather icon-help-circle f-16"></i></a>
+                </span>
+              </th>
+              <th>
+                <span>Coin
+                  <a class="help"><i class="feather icon-help-circle f-16"></i></a>
+                </span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let rex of bullBear">
+              <td>{{rex.address}}</td>
+              <td>{{rex.action}}
+                <div class="mt-1" *ngIf="rex.action == 'Withdrew'">
+                  <ngb-progressbar type="danger" height="4px" [value]="100"></ngb-progressbar>
+                </div>
+                <div class="mt-1" *ngIf="rex.action == 'Invested'">
+                  <ngb-progressbar type="success" height="4px" [value]="100"></ngb-progressbar>
+                </div>
+              </td>
+              <td>{{ '$' + rex.amount}}
+              </td>
+              <td>{{rex.coin}}
+                <img *ngIf="rex.coin =='BTC'" src="https://img.icons8.com/officexs/16/000000/bitcoin.png"/>
+                <img *ngIf="rex.coin =='ETH'" src="https://img.icons8.com/fluent/48/000000/ethereum.png" height="16" width="16" />
+                <p *ngIf="rex.coin =='USDT'" style="color: rgb(57, 191, 57);">$</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </perfect-scrollbar>
+      <h4 class="text-center" *ngIf="bullBear.length < 1">{{'No Investment/Withdrawal yet'}}</h4>
+    </app-card>
+  </div>
+  <!-- customer overview start -->
+
+<app-ui-modal #exampleModalPopoversLabel>
+  <div class="app-modal-header">
+    <h5 class="modal-title">Confirmation</h5>
+    <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="exampleModalPopoversLabel.hide()"><span aria-hidden="true">&times;</span></button>
+  </div>
+  <div class="app-modal-body">
+    <p>You are activating the double investment system state.</p>
+    <p>Please enter your password</p>
+    <form method="POST" enctype="multipart/form-data">
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="inputAddress3">Enter password</label>
+          <input type="text" class="form-control" id="inputAddress3" name="password" id="password">
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="app-modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="exampleModalPopoversLabel.hide()">Close</button>
+      <button class="btn btn-primary event-btn m-2" type="button" (click)="confirm()">
+        <span *ngIf="this.submitLoader" class="load-text"> Activate...</span>
+        <span *ngIf="!this.submitLoader" class="btn-text">Activate</span>
+      </button>
+  </div>
+</app-ui-modal>
+
+<app-ui-modal #referralModalPopoversLabel>
+  <div class="app-modal-header">
+    <h5 class="modal-title">Confirmation</h5>
+    <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="referralModalPopoversLabel.hide()"><span aria-hidden="true">&times;</span></button>
+  </div>
+  <div class="app-modal-body" *ngIf="card.referral">
+    <p>Referral Code: <strong>{{card.referral.link}}</strong></p>
+    <p>Total referrals: <strong>{{card.referral.count}}</strong></p>
+    <p>Profit: <strong>10%</strong> of your referral's first investment</p>
+    <p>Direct Link: <strong>https://finance.topfinanceltd.com/auth/signup/{{card.referral.link}}</strong></p>
+  </div>
+  <div class="app-modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="referralModalPopoversLabel.hide()">Close</button>
+  </div>
+</app-ui-modal>
+
+</div>

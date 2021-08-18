@@ -1,0 +1,36 @@
+<div class="col-md-12">
+  <app-card cardTitle="Record" blockClass="table-border-style">
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Interest</th>
+          <th>Maturity</th>
+          <th>Min Amount</th>
+          <th>Max Amount</th>
+          <th *ngIf="user.role == '1'">Total Investment</th>
+        </tr>
+        </thead>
+        <tbody>
+            <ng-container  *ngIf="records?.length >0">
+              <tr *ngFor="let record of records; let i=index;" class="t-list">
+                <td>{{i+1}}</td>
+                <td>{{record?.name}}</td>
+                <td>{{record?.interest}}</td>
+                <td>{{record?.maturity + ' (Hours)'}}</td>
+                <td>{{record?.min_amount}}</td>
+                <td>{{record?.max_amount}}</td>
+                <td *ngIf="user.role == '1'">{{ record?.investments?.length }}</td>
+              </tr>
+          </ng-container>
+        </tbody>
+      </table>
+      <div class="col-12 text-center" *ngIf="records?.length <1">
+        <p>No data available</p>
+        <button class="btn btn-primary" [routerLink]="['/authenticated/plan/create']">Create Plan</button>
+      </div>
+    </div>
+  </app-card>
+</div>

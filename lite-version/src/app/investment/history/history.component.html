@@ -1,0 +1,40 @@
+<div class="col-md-12">
+  <app-card cardTitle="Investment history" blockClass="table-border-style">
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th>#</th>
+          <th>Date/Time</th>
+          <th>Amount</th>
+          <th>Plan</th>
+          <th>Coin</th>
+          <th>Address</th>
+          <th>Status</th>
+        </tr>
+        </thead>
+        <tbody>
+            <ng-container  *ngIf="history?.length >0">
+              <tr *ngFor="let record of history;let i=index;" class="t-list">
+                <td>{{i +1}}</td>
+                <td>{{getTimeStamp(record?.created_at)}}</td>
+                <td>{{ '$' +  record.amount}}</td>
+                <td>{{record.plans.name}}</td>
+                <td>{{record.type}}
+                  <img src="../../../assets/images/etf.png" height="16" width="16" *ngIf="record?.type == 'ETH'" />
+                  <img src="https://img.icons8.com/officexs/16/000000/bitcoin.png" *ngIf="record?.type == 'BTC'" height="16" width="16" />
+
+                </td>
+                <td>{{record.address}}</td>
+                <td [ngClass]="{confirmed: record.status == 'Confirmed'}">{{record.status}}</td>
+              </tr>
+          </ng-container>
+        </tbody>
+      </table>
+      <!-- <div class="col-12 text-center" *ngIf="(students | async)?.length <1">
+        <p>No data available</p>
+        <button class="btn btn-primary" [routerLink]="['/authenticated/add-new-student']">Invest</button>
+      </div> -->
+    </div>
+  </app-card>
+</div>

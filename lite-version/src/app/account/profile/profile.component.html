@@ -1,0 +1,47 @@
+<div>
+  <form method="POST" [formGroup]="profileForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+    <div class="row">
+      <div class="input-group mb-3 col-6">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="feather icon-mail"></i></span>
+        </div>
+        <input type="email" class="form-control" formControlName="email"
+          [ngClass]="{'error': (valdator().email.status == 'INVALID' && validation_response.isSubmitted)}" placeholder="Email address">
+      </div>
+      <div class="input-group mb-4 col-6">
+        <div class="input-group-prepend pass-vis" (click)="credientials.password.visibility = !credientials.password.visibility">
+          <span class="input-group-text"><i class="feather icon-lock"></i></span>
+        </div>
+        <input type="{{credientials.password.visibility ? 'text' : 'password'}}" class="form-control" (keyup)="addingPassword()"
+          [ngClass]="{'error': (valdator().password.status == 'INVALID' && validation_response.isSubmitted)}" formControlName="password"
+            placeholder="Password">
+      </div>
+      <div class="input-group mb-4 col-6">
+        <div class="input-group-prepend pass-vis" (click)="credientials.password.visibility = !credientials.password.visibility">
+          <span class="input-group-text"><i class="feather icon-lock"></i></span>
+        </div>
+        <input type="{{credientials.password.visibility ? 'text' : 'password'}}" class="form-control"
+          [ngClass]="{'error': (valdator().confirm_password.status == 'INVALID' && validation_response.isSubmitted)}" formControlName="confirm_password"
+            placeholder="Confirm password">
+      </div>
+      <div class="input-group mb-4 col-6">
+        <div class="input-group-prepend pass-vis" (click)="credientials.password.visibility = !credientials.password.visibility">
+          <span class="input-group-text"><i class="feather icon-lock"></i></span>
+        </div>
+        <input type="{{credientials.password.visibility ? 'text' : 'password'}}" class="form-control"
+          [ngClass]="{'error': (valdator().oldpassword.status == 'INVALID' && validation_response.isSubmitted)}" formControlName="oldpassword"
+            placeholder="Enter Current Password">
+      </div>
+    </div>
+    <div *ngIf="validation_response.failure.length !== 0">
+      <p class="error-m" *ngFor="let error of validation_response.failure">{{validation_response.failure}}</p>
+    </div>
+     <div *ngIf="validation_response.success.length !== 0">
+      <p class="success-m" *ngFor="let error of validation_response.success">{{validation_response.success}}</p>
+    </div>
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary mb-4" style="background: #060606; border-color: #cc9000;" [ngClass]="{'disable': validation_response.disable}">Update</button>
+    </div>
+  </form>
+</div>
+

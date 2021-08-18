@@ -1,0 +1,90 @@
+<div class="col-md-12">
+  <app-card cardTitle="Withdrawal history" blockClass="table-border-style">
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th>#</th>
+          <th>Date/Time</th>
+          <th>Amount</th>
+          <th>Coin</th>
+          <th>Address</th>
+          <th>Copy Address</th>
+          <th>Status</th>
+        </tr>
+        </thead>
+        <tbody>
+            <ng-container  *ngIf="history?.length >0">
+              <tr *ngFor="let record of history;let i=index;" class="t-list">
+                <td>{{i +1}}</td>
+                <td>{{record.created_at}}</td>
+                <td>{{'$' + record.amount}}</td>
+                <td>{{record.payment_method}}</td>
+                <td>{{record.paying_address}}</td>
+                <td><button type="button" class="btn btn-dark" (click)="copy(record.paying_address)">Copy Address</button></td>
+                <td><button type="button" class="btn btn-primary" data-toggle="modal" class="btn btn-danger" (click)="declineModalPopoversLabel.show(); selectedInvestMent = record;">Decline</button></td>
+                <td><button type="button" class="btn btn-primary" data-toggle="modal" class="btn btn-primary" (click)="exampleModalPopoversLabel.show(); selectedInvestMent = record;">Approve</button></td>
+              </tr>
+          </ng-container>
+        </tbody>
+      </table>
+      <!-- <div class="col-12 text-center" *ngIf="(students | async)?.length <1">
+        <p>No data available</p>
+        <button class="btn btn-primary" [routerLink]="['/authenticated/add-new-student']">Invest</button>
+      </div> -->
+    </div>
+  </app-card>
+</div>
+
+<app-ui-modal #exampleModalPopoversLabel>
+  <div class="app-modal-header">
+    <h5 class="modal-title">Confirmation</h5>
+    <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="exampleModalPopoversLabel.hide()"><span aria-hidden="true">&times;</span></button>
+  </div>
+  <div class="app-modal-body">
+    <p>Confirming withdrawal of amount: {{'$' + selectedInvestMent.amount}}</p>
+    <p>Please enter your password to authenticate</p>
+    <form method="POST" enctype="multipart/form-data">
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="inputAddress3">Enter password</label>
+          <input type="text" class="form-control" id="inputAddress3" name="password" id="password">
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="app-modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="exampleModalPopoversLabel.hide()">Close</button>
+      <button class="btn btn-primary event-btn m-2" type="button" (click)="confirm()">
+        <span *ngIf="this.submitLoader" class="spinner-grow spinner-grow-sm" role="status"></span>
+        <span *ngIf="this.submitLoader" class="load-text"> Updating...</span>
+        <span *ngIf="!this.submitLoader" class="btn-text">I have sent the money</span>
+      </button>
+  </div>
+</app-ui-modal>
+<app-ui-modal #declineModalPopoversLabel>
+  <div class="app-modal-header">
+    <h5 class="modal-title">Confirmation</h5>
+    <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="declineModalPopoversLabel.hide()"><span aria-hidden="true">&times;</span></button>
+  </div>
+  <div class="app-modal-body">
+    <p>Declining withdrawal of amount: {{'$' + selectedInvestMent.amount}}</p>
+    <p>Please enter your password to authenticate</p>
+    <form method="POST" enctype="multipart/form-data">
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="inputAddress3">Enter password</label>
+          <input type="text" class="form-control" id="inputAddress3" name="password" id="deletepassword">
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="app-modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="declineModalPopoversLabel.hide()">Close</button>
+      <button class="btn btn-primary event-btn m-2" type="button" (click)="decline()">
+        <span *ngIf="this.submitLoader" class="spinner-grow spinner-grow-sm" role="status"></span>
+        <span *ngIf="this.submitLoader" class="load-text"> Updating...</span>
+        <span *ngIf="!this.submitLoader" class="btn-text">Decline</span>
+      </button>
+  </div>
+</app-ui-modal>

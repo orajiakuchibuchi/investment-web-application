@@ -1,0 +1,61 @@
+<div class="col-md-12">
+  <app-card cardTitle="Record" blockClass="table-border-style">
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th>#</th>
+          <th>Email</th>
+          <th>Last Logged In</th>
+          <th>Current Profit</th>
+          <th>Edit Profit</th>
+        </tr>
+        </thead>
+        <tbody>
+            <ng-container  *ngIf="users?.length >0">
+              <tr *ngFor="let user of users; let i = index;" class="t-list">
+                <td>{{i + 1}}</td>
+                <td>{{user?.email}}</td>
+                <td>{{getTimeStamp(user?.last_logged_in)}}</td>
+                <td>{{user?.dumb_profit | currency}}</td>
+                <td><h3><button type="button" class="btn btn-primary" data-toggle="modal"
+                  (click)="exampleModalPopoversLabel.show();  selected = user?.email;"
+                class="btn btn-primary">Update</button></h3></td>
+              </tr>
+          </ng-container>
+        </tbody>
+      </table>
+      <div class="col-12 text-center" *ngIf="users?.length <1">
+        <p>No User Available. Keep Promoting!</p>
+        <button class="btn btn-primary" [routerLink]="['/authenticated/dashboard/analytics']">Dashboard</button>
+      </div>
+    </div>
+  </app-card>
+
+<app-ui-modal #exampleModalPopoversLabel>
+  <div class="app-modal-header">
+    <h5 class="modal-title">Update Profit</h5>
+    <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="exampleModalPopoversLabel.hide(); selected = '';"><span aria-hidden="true">&times;</span></button>
+  </div>
+  <div class="app-modal-body">
+    <p>You are updating the user profit</p>
+    <p>Please enter new profit in whole numbers(10,20 etc)</p>
+    <form method="POST" enctype="multipart/form-data">
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="inputAddress3">New Profit</label>
+          <input type="number" class="form-control" id="inputAddress3" name="profit" id="profit">
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="app-modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="exampleModalPopoversLabel.hide()">Close</button>
+      <button class="btn btn-primary event-btn m-2" type="button" (click)="confirm()">
+        <span *ngIf="this.submitLoader" class="load-text"> Update...</span>
+        <span *ngIf="!this.submitLoader" class="btn-text">Update</span>
+      </button>
+  </div>
+</app-ui-modal>
+
+</div>

@@ -1,0 +1,51 @@
+<div>
+  <form method="POST" [formGroup]="investForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputAddress2">Plan</label>
+        <select id="plan" class="form-control" (change)="selectPlan()" formControlName="plan">
+          <option value="" selected>Select plan</option>
+          <option *ngFor="let plan of plans" value="{{plan.id}}">
+            {{plan.name}} </option>
+        </select>
+      </div>
+      <div class="form-group col-md-6" *ngIf="plan">
+        <label for="inputAddress2">Payment Method</label>
+        <select id="inputState" class="form-control" formControlName="address">
+          <option value="" selected>{{'Select Payment method' | titlecase}}</option>
+          <option *ngFor="let address of addresses" value="{{address.address}}">{{address.coin |titlecase}}</option>
+        </select>
+      </div>
+
+      <div class="form-group col-md-6" *ngIf="plan">
+        <label for="inputAddress2">Amount</label>
+        <input type="number" class="form-control" min="{{plan.min_amount}}" formControlName="amount" max="{{plan.max_amount}}" id="inputAddress2" placeholder="Enter amount">
+        <p *ngIf="validate().amount.valid" id="return">Return: $ {{(validate().amount.value * (plan.interest/100)) + validate().amount.value}}</p>
+      </div>
+
+      <div class="form-group col-md-6" *ngIf="plan">
+        <label for="inputAddress2">Paying Address (important)</label>
+        <input type="text" class="form-control" id="inputAddress2" formControlName="paying_address" placeholder="Enter the address you are paying from">
+        <a (click)="paste()" href="javascript:void(0);">Paste from Clipboard</a>
+      </div>
+      <div class="col-12 text-center" *ngIf="validate().address.valid">
+        <p>Plan Details</p>
+        <span>Minimum amount: {{plan.min_amount}}</span><br>
+        <span>Maximum amount: {{plan.max_amount}}</span><br>
+        <span>Maturity: {{plan.maturity}} (Hours)</span><br>
+        <span>Interest: <strong>{{plan.interest}} %</strong></span>
+        <h4>Address to pay to: {{validate().address.value}}</h4>
+        <button type="button" class="btn btn-dark" (click)="copy()">Copy Address</button>
+        <p *ngIf="message">{{message}}</p>
+        <button class="btn btn-primary event-btn m-2" type="submit" *ngIf="!validator_toast.success">
+          <span *ngIf="this.submitLoader" class="spinner-grow spinner-grow-sm" role="status"></span>
+          <span *ngIf="this.submitLoader" class="load-text"> Investing...</span>
+          <span *ngIf="!this.submitLoader" class="btn-text">I have made payment</span>
+        </button>
+      </div>
+    </div>
+  </form>
+
+  <p *ngIf="validator_toast.message" class="success">{{validator_toast.message}}</p>
+</div>
+
