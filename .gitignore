@@ -1,0 +1,8 @@
+/mail
+/tg
+/https:
+/backend/vendor
+/backend/storage
+/backend/.env
+/lite-version/dist
+/lite-version/node_modules
