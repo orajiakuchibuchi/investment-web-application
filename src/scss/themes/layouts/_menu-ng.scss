@@ -31,7 +31,7 @@
         &:hover {
           > a {
             &:before {
-              background: #fff;
+              background: #0b4f74 ;
             }
           }
         }
@@ -104,7 +104,7 @@
 
         > a {
           // background: darken($menu-dark-background,4%);
-          color: #fff;
+          color: #0b4f74;
         }
       }
 
@@ -517,8 +517,8 @@ body{
     .pcoded-inner-navbar app-nav-item > li.active a,
     .pcoded-inner-navbar app-nav-item > li.pcoded-trigger a,
     .pcoded-inner-navbar app-nav-item > li:hover a {
-      background: transparent;
-      // color: #000;
+      background: #ffffff !important;
+      color: #0b4f74 !important;
     }
   }
 
@@ -553,8 +553,8 @@ body{
         .pcoded-inner-navbar > app-nav-group > app-nav-collapse > li.pcoded-trigger > a,
         .pcoded-inner-navbar > app-nav-group > app-nav-item > li.active > a,
         .pcoded-inner-navbar > app-nav-group > app-nav-item > li.pcoded-trigger > a {
-          background: transparent !important;
-          color: #fff !important;
+          background: #0b4f74;
+          color: #0b4f74;
         }
       }
 

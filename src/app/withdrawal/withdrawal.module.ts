@@ -9,10 +9,11 @@ import { HistoryComponent } from './history/history.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RequestsComponent } from './requests/requests.component';
 import { AllHistoryComponent } from './all-history/all-history.component';
+import { SearchRecordComponent } from './search-record/search-record.component';
 
 
 @NgModule({
-  declarations: [WithdrawalComponent, RequestComponent, HistoryComponent, RequestsComponent, AllHistoryComponent],
+  declarations: [WithdrawalComponent, RequestComponent, HistoryComponent, RequestsComponent, AllHistoryComponent, SearchRecordComponent],
   imports: [
     CommonModule,
     WithdrawalRoutingModule,

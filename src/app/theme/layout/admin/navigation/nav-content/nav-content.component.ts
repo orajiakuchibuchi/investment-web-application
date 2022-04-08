@@ -29,7 +29,7 @@ export class NavContentComponent implements OnInit, AfterViewInit {
     this.nextConfig = NextConfig.config;
     this.windowWidth = window.innerWidth;
     this.user = this.AuthenticationService.getUser();
-    this.navigation = this.nav.get().filter(x => x.role.includes(parseInt(this.user['user']['role'])));
+    this.navigation = this.nav.get();
     // alert(JSON.stringify(this.navigation, null, 4));
     this.prevDisabled = 'disabled';
     this.nextDisabled = '';
@@ -38,12 +38,17 @@ export class NavContentComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    if (this.windowWidth < 992) {
-      this.nextConfig['layout'] = 'vertical';
-      setTimeout(() => {
-        document.querySelector('.pcoded-navbar').classList.add('menupos-static');
-        (document.querySelector('#nav-ps-next') as HTMLElement).style.maxHeight = '100%';
-      }, 500);
+    if(this.user){
+      this.navigation = this.navigation.filter(x => x.role.includes(parseInt(this.user['user']['role'])));
+      if(this.navigation.length ){
+        if (this.windowWidth < 992) {
+          this.nextConfig['layout'] = 'vertical';
+          setTimeout(() => {
+            document.querySelector('.pcoded-navbar').classList.add('menupos-static');
+            (document.querySelector('#nav-ps-next') as HTMLElement).style.maxHeight = '100%';
+          }, 500);
+        }
+      }
     }
   }
 

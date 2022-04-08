@@ -1,5 +1,7 @@
 export const environment = {
   production: true,
-  url: 'https://backend.topfinanceltd.com/api',
-  website: 'https://topfinanceltd.com'
+  url: 'https://backend.royalassetsltd.com/api',
+  website: 'https://royalassetsltd.com/'
 };
+
+

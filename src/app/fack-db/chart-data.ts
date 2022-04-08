@@ -10,7 +10,7 @@ export class ChartDB {
       dataLabels: {
         enabled: false
       },
-      colors: ['#060606', '#0e9e4a', '#ff5252'],
+      colors: ['#0b4f74', '#0e9e4a', '#ff5252'],
       stroke: {
         curve: 'smooth',
         width: 2,
@@ -57,7 +57,7 @@ export class ChartDB {
         columnWidth: '50%'
       }
     },
-    colors: ['#060606', '#11c15b'],
+    colors: ['#0b4f74', '#11c15b'],
     series: [{
       name: 'Facebook',
       type: 'column',
@@ -133,7 +133,7 @@ export class ChartDB {
     dataLabels: {
       enabled: false
     },
-    colors: ['#060606'],
+    colors: ['#0b4f74'],
     fill: {
       type: 'gradient',
       gradient: {
@@ -362,7 +362,7 @@ export class ChartDB {
         show: false
       }
     },
-    colors: ['#060606'],
+    colors: ['#0b4f74'],
   };
   public static bounceRateAACC = {
     chart: {
@@ -450,7 +450,7 @@ export class ChartDB {
     dataLabels: {
       enabled: false
     },
-    colors: ['#060606'],
+    colors: ['#0b4f74'],
     plotOptions: {
       bar: {
         columnWidth: '80%'
@@ -553,7 +553,7 @@ export class ChartDB {
         left: 0
       },
     },
-    colors: ['#060606', '#0e9e4a', '#ff5252'],
+    colors: ['#0b4f74', '#0e9e4a', '#ff5252'],
   };
   public static dailyVisitorAACC = {
     chart: {
@@ -851,7 +851,7 @@ export class ChartDB {
       size: 0,
       style: 'hollow',
     },
-    colors: ['#060606'],
+    colors: ['#0b4f74'],
     xaxis: {
       type: 'datetime',
       min: new Date('01 Mar 2012').getTime(),
@@ -931,7 +931,7 @@ export class ChartDB {
         },
       }
     },
-    colors: ['#060606', '#0e9e4a', '#ff5252'],
+    colors: ['#0b4f74', '#0e9e4a', '#ff5252'],
     dataLabels: {
       enabled: false,
       offsetX: -6,
@@ -1093,7 +1093,7 @@ export class ChartDB {
         enabled: true
       },
     },
-    colors: ['#060606', '#0e9e4a', '#ff5252'],
+    colors: ['#0b4f74', '#0e9e4a', '#ff5252'],
     plotOptions: {
       bar: {
         columnWidth: '55%',
@@ -1127,7 +1127,7 @@ export class ChartDB {
     legend: {
       show: false
     },
-    colors: ['#00acc1', '#ffa21d', '#060606'],
+    colors: ['#00acc1', '#ffa21d', '#0b4f74'],
   };
   public static saleCAC = {
     chart: {
@@ -1140,7 +1140,7 @@ export class ChartDB {
     dataLabels: {
       enabled: false
     },
-    colors: ['#060606'],
+    colors: ['#0b4f74'],
     plotOptions: {
       bar: {
         columnWidth: '80%'
@@ -1191,7 +1191,7 @@ export class ChartDB {
     theme: {
       monochrome: {
         enabled: true,
-        color: '#060606',
+        color: '#0b4f74',
       }
     },
     responsive: [{
@@ -1269,7 +1269,7 @@ export class ChartDB {
     yaxis: {
       min: 100
     },
-    colors: ['#060606'],
+    colors: ['#0b4f74'],
   };
   public static storageCAC = {
     chart: {
@@ -1282,7 +1282,7 @@ export class ChartDB {
     dataLabels: {
       enabled: false
     },
-    colors: ['#060606', '#00acc1'],
+    colors: ['#0b4f74', '#00acc1'],
     stroke: {
       curve: 'smooth',
       width: 2,
@@ -1317,7 +1317,7 @@ export class ChartDB {
     dataLabels: {
       enabled: false
     },
-    colors: ['#060606'],
+    colors: ['#0b4f74'],
     stroke: {
       curve: 'smooth',
       width: 2,
@@ -1350,7 +1350,7 @@ export class ChartDB {
     dataLabels: {
       enabled: false
     },
-    colors: ['#060606'],
+    colors: ['#0b4f74'],
     series: [{
       name: 'Metric1',
       data: generateDataSabraThat(12, {
@@ -1463,7 +1463,7 @@ export class ChartDB {
       }
     },
     series: [85.7, 77.56, 20.9, 10.9, 15.8, 86.7],
-    colors: ['#060606', '#0e9e4a', '#00acc1', '#ffa21d', '#ff5252', '#7759de'],
+    colors: ['#0b4f74', '#0e9e4a', '#00acc1', '#ffa21d', '#ff5252', '#7759de'],
     labels: ['Facebook ads', 'Amazon ads', 'Youtube videos', 'Google adsense', 'Twitter ads', 'News ads'],
     legend: {
       show: true,
@@ -1514,7 +1514,7 @@ export class ChartDB {
     dataLabels: {
       enabled: true
     },
-    colors: ['#060606'],
+    colors: ['#0b4f74'],
     plotOptions: {
       bar: {
         colors: {
@@ -1529,7 +1529,7 @@ export class ChartDB {
           }, {
             from: 31,
             to: 50,
-            color: '#060606'
+            color: '#0b4f74'
           }, {
             from: 51,
             to: 100,
@@ -1576,7 +1576,7 @@ export class ChartDB {
     dataLabels: {
       enabled: false
     },
-    colors: ['#060606'],
+    colors: ['#0b4f74'],
     plotOptions: {
       bar: {
         columnWidth: '80%'
@@ -1802,7 +1802,7 @@ export class ChartDB {
     stroke: {
       curve: 'straight',
     },
-    colors: ['#060606'],
+    colors: ['#0b4f74'],
     series: [{
       name: 'Desktops',
       data: [10, 41, 35, 51, 49, 62, 69, 91, 148]
@@ -1959,7 +1959,7 @@ export class ChartDB {
     dataLabels: {
       enabled: false
     },
-    colors: ['#0e9e4a', '#060606', '#ff5252'],
+    colors: ['#0e9e4a', '#0b4f74', '#ff5252'],
     stroke: {
       show: true,
       width: 2,
@@ -2008,7 +2008,7 @@ export class ChartDB {
     dataLabels: {
       enabled: false
     },
-    colors: ['#060606', '#0e9e4a', '#ffa21d', '#ff5252'],
+    colors: ['#0b4f74', '#0e9e4a', '#ffa21d', '#ff5252'],
     responsive: [{
       breakpoint: 480,
       options: {
@@ -2062,7 +2062,7 @@ export class ChartDB {
         },
       }
     },
-    colors: ['#060606', '#0e9e4a'],
+    colors: ['#0b4f74', '#0e9e4a'],
     dataLabels: {
       enabled: false,
       offsetX: -6,
@@ -2102,7 +2102,7 @@ export class ChartDB {
       },
 
     },
-    colors: ['#060606', '#00acc1', '#0e9e4a', '#ffa21d', '#ff5252'],
+    colors: ['#0b4f74', '#00acc1', '#0e9e4a', '#ffa21d', '#ff5252'],
     stroke: {
       width: 1,
       colors: ['#fff']
@@ -2166,7 +2166,7 @@ export class ChartDB {
     stroke: {
       width: [0, 4]
     },
-    colors: ['#060606', '#ff5252'],
+    colors: ['#0b4f74', '#ff5252'],
     title: {
       text: 'Traffic Sources'
     },
@@ -2206,7 +2206,7 @@ export class ChartDB {
         columnWidth: '50%'
       }
     },
-    colors: ['#ff5252', '#060606', '#ffa21d'],
+    colors: ['#ff5252', '#0b4f74', '#ffa21d'],
     series: [{
       name: 'Facebook',
       type: 'column',
@@ -2570,7 +2570,7 @@ export class ChartDB {
         })
       }
     ],
-    colors: ['#060606', '#0e9e4a', '#ffa21d', '#ff5252'],
+    colors: ['#0b4f74', '#0e9e4a', '#ffa21d', '#ff5252'],
     fill: {
       opacity: 0.8
     },
@@ -2625,7 +2625,7 @@ export class ChartDB {
     fill: {
       type: 'gradient',
     },
-    colors: ['#060606', '#0e9e4a', '#ffa21d', '#ff5252'],
+    colors: ['#0b4f74', '#0e9e4a', '#ffa21d', '#ff5252'],
     title: {
       text: '3D Bubble Chart'
     },
@@ -2656,7 +2656,7 @@ export class ChartDB {
     dataLabels: {
       enabled: false
     },
-    colors: ['#060606', '#0e9e4a', '#ff5252', '#ffa21d', '#00acc1'],
+    colors: ['#0b4f74', '#0e9e4a', '#ff5252', '#ffa21d', '#00acc1'],
     series: [{
       name: 'SAMPLE A',
       data: [
@@ -2820,7 +2820,7 @@ export class ChartDB {
     dataLabels: {
       enabled: false
     },
-    colors: ['#060606', '#0e9e4a', '#ff5252', '#ffa21d', '#00acc1'],
+    colors: ['#0b4f74', '#0e9e4a', '#ff5252', '#ffa21d', '#00acc1'],
     grid: {
       xaxis: {
         showLines: true
@@ -2845,7 +2845,7 @@ export class ChartDB {
     dataLabels: {
       enabled: false
     },
-    colors: ['#060606'],
+    colors: ['#0b4f74'],
     series: [{
       name: 'Metric1',
       data: generateDatasehratheat(12, {
@@ -3012,7 +3012,7 @@ export class ChartDB {
         })
       }
     ],
-    colors: ['#060606', '#00acc1', '#0e9e4a', '#ffa21d', '#ff5252'],
+    colors: ['#0b4f74', '#00acc1', '#0e9e4a', '#ffa21d', '#ff5252'],
     xaxis: {
       type: 'category',
     },
@@ -3028,7 +3028,7 @@ export class ChartDB {
     labels: ['Teaching methodology', 'Assessment procedures', 'Integration of faith/christian concepts/values in teaching',
     'Classroom management', 'Teachers attendance and punctuality'],
     series: [],
-    colors: ['#060606', '#0e9e4a', '#00acc1', '#ffa21d', '#ff5252'],
+    colors: ['#0b4f74', '#0e9e4a', '#00acc1', '#ffa21d', '#ff5252'],
     legend: {
       show: true,
       position: 'bottom',
@@ -3057,7 +3057,7 @@ export class ChartDB {
       type: 'donut',
     },
     series: [44, 55, 41, 17, 15],
-    colors: ['#060606', '#0e9e4a', '#00acc1', '#ffa21d', '#ff5252'],
+    colors: ['#0b4f74', '#0e9e4a', '#00acc1', '#ffa21d', '#ff5252'],
     legend: {
       show: true,
       position: 'bottom',
@@ -3110,7 +3110,7 @@ export class ChartDB {
         }
       },
     },
-    colors: ['#060606'],
+    colors: ['#0b4f74'],
     series: [70],
     labels: ['Cricket'],
   };
@@ -3144,7 +3144,7 @@ export class ChartDB {
         }
       }
     },
-    colors: ['#060606', '#0e9e4a', '#ffa21d', '#ff5252'],
+    colors: ['#0b4f74', '#0e9e4a', '#ffa21d', '#ff5252'],
     series: [76, 67, 61, 90],
     labels: ['Vimeo', 'Messenger', 'Facebook', 'LinkedIn'],
     legend: {
@@ -3253,7 +3253,7 @@ export class ChartDB {
     title: {
       text: 'Radar Chart - Multi Series'
     },
-    colors: ['#060606', '#0e9e4a', '#ff5252'],
+    colors: ['#0b4f74', '#0e9e4a', '#ff5252'],
     stroke: {
       width: 0
     },
@@ -3313,7 +3313,7 @@ export class ChartDB {
     dataLabels: {
       enabled: false
     },
-    colors: ['#060606'],
+    colors: ['#0b4f74'],
     stroke: {
       curve: 'smooth',
       width: 2,
@@ -3393,7 +3393,7 @@ export class ChartDB {
     theme: {
       monochrome: {
         enabled: true,
-        color: '#060606',
+        color: '#0b4f74',
       }
     },
     responsive: [{

@@ -10,6 +10,10 @@ const routes: Routes = [
         loadChildren: () => import('./auth-signup/auth-signup.module').then(module => module.AuthSignupModule)
       },
       {
+        path: 'signup/:referral',
+        loadChildren: () => import('./auth-signup/auth-signup.module').then(module => module.AuthSignupModule)
+      },
+      {
         path: 'signin',
         loadChildren: () => import('./auth-signin/auth-signin.module').then(module => module.AuthSigninModule),
         canActivate: [BeforeLoginGuard]

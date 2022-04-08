@@ -14,3 +14,17 @@
   cursor: not-allowed;
   background-color: rgb(166, 166, 246);
 }
+button{
+  border-radius: 40px;
+}
+.card {
+  border-top-right-radius: 30px;
+  border-top-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+
+.qu-sug {
+  cursor: pointer;
+  color: rgb(24, 101, 136)
+}

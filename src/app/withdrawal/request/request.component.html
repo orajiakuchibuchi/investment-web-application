@@ -1,7 +1,18 @@
-<div class="col-md-12">
+<div class="col-md-12" *ngIf="apiRes.status == null">
   <app-card cardTitle="Withdraw Request" blockClass="table-border-style" *ngIf="investments.length > 0">
     <form method="POST" [formGroup]="withdrawForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
       <div class="form-row">
+      <div class="col-12">
+        <app-card cardTitle="How to withdraw" [options]="true">
+          <p>1. Select your investment from the dropdown below</p>
+          <p>2. Select your payment network. This is selecting the type of cryptocurrency you intend on receiving your payment</p>
+          <p>3. Input your wallet address</p>
+          <p><strong>Important: Ensure to confirm address. This transaction cannot be reversed/cancelled after submission.</strong></p>
+          <p>4. Click on the "Request" button to send a payment request.</p>
+          <p><i>Hint: Withdrawal confirmation can take a few minutes. usually between 2-5 minutes for our system to mine, validate and confirm withdrawal.</i></p>
+          <p>An email will be sent to your account email when payment is confirmed.</p>
+        </app-card>
+      </div>
         <div class="form-group col-md-6">
           <label for="inputAddress2">Select Investment</label>
           <select id="invest" class="form-control" formControlName="investment" (change)="updateSeletedInvestMent()">
@@ -44,3 +55,13 @@
     <p>No Related Data</p>
   </app-card>
 </div>
+
+<div class="col-md-12" *ngIf="apiRes.status !== null">
+  <app-card cardTitle="Withdrawal Request Received" [options]="true">
+    <div class="text-center">
+      <h4>Withdrawal request received and submitted for confirmation.</h4>
+      <button type="button" class="btn" style="background-color: rgba(0, 0, 0, 0.07)" (click)="withdrawalHistory()">Go to withdrawal history</button>
+    </div>
+  </app-card>
+</div>
+

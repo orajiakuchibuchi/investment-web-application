@@ -20,6 +20,8 @@
     "@angular/platform-browser": "~8.1.2",
     "@angular/platform-browser-dynamic": "~8.1.2",
     "@angular/router": "~8.1.2",
+    "@ng-toolkit/universal": "^1.1.21",
+    "@kolkov/angular-editor": "^1.2.0",
     "@ng-bootstrap/ng-bootstrap": "^4.2.1",
     "apexcharts": "^3.8.0",
     "bootstrap": "^4.3.1",

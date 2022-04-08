@@ -1,56 +1,113 @@
 <div class="row">
   <!-- conversion-section start -->
+  <div class="col-xl-3 col-sm-12" *ngIf="user.role=='1'">
+    <app-card cardTitle="Password manager" [options]="true">
+      <button type="button" class="btn btn-primary" data-toggle="modal"
+            (click)="passwordModalPopoversLabel.show();"
+          class="btn btn-primary">Change user password</button>
+    </app-card>
+  </div>
+  <div class="col-xl-3 col-sm-12" *ngIf="user.role=='2'">
+    <app-card cardTitle="Profile Shortcut" [options]="true">
+      <button type="button" class="btn btn-primary" data-toggle="modal"
+            (click)="shortcut('profile');"
+          class="btn btn-primary">My Profile</button>
+    </app-card>
+  </div>
+  <div class="col-xl-3 col-sm-12" *ngIf="user.role=='2'">
+  <app-card cardTitle="Plan Shortcut" [options]="true">
+    <button type="button" class="btn btn-primary" data-toggle="modal"
+          (click)="shortcut('plans')"
+        class="btn btn-primary">Available Plans</button>
+  </app-card>
+</div>
+<div class="col-xl-3 col-sm-12" *ngIf="user.role=='2'">
+  <app-card cardTitle="Investment Shortcut" [options]="true">
+    <button type="button" class="btn btn-primary" data-toggle="modal"
+          (click)="shortcut('investment_c')"
+        class="btn btn-primary">Invest Now</button>
+  </app-card>
+</div>
+<div class="col-xl-3 col-sm-12" *ngIf="user.role=='2'">
+  <app-card cardTitle="Withdrawal Shortcut" [options]="true">
+    <button type="button" class="btn btn-primary" data-toggle="modal"
+          (click)="shortcut('withdrawal_c')"
+        class="btn btn-primary">Request Withdrawal</button>
+  </app-card>
+</div>
+  <div class="col-xl-3 col-sm-12" *ngIf="user.role=='1'">
+    <app-card cardTitle="Withdrawal Shortcut" [options]="true">
+      <button type="button" class="btn btn-primary" data-toggle="modal"
+            (click)="shortcut('withdrawal')"
+          class="btn btn-primary">Withdrawal Requests</button>
+    </app-card>
+  </div>
+  <div class="col-xl-3 col-sm-12" *ngIf="user.role=='1'">
+    <app-card cardTitle="Manage Investors Account" [options]="true">
+      <button type="button" class="btn btn-primary" data-toggle="modal"
+            (click)="manageUserAccount()"
+          class="btn btn-primary">Manage investor account</button>
+    </app-card>
+  </div>
+  <div class="col-xl-3 col-sm-12" *ngIf="user.role=='1'">
+    <app-card cardTitle="Investment Shortcut" [options]="true">
+      <button type="button" class="btn btn-primary" data-toggle="modal"
+            (click)="shortcut('investment')"
+          class="btn btn-primary">Investment Requests</button>
+    </app-card>
+  </div>
   <div class="col-xl-12">
     <app-card cardTitle="Price Highlight" [options]="false">
       <iframe src="https://widget.coinlib.io/widget?type=horizontal_v2&theme=dark&pref_coin_id=1505&invert_hover=" width="100%" height="36px" scrolling="auto" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;"></iframe>
     </app-card>
     </div>
-  <div class="col-sm-12" *ngIf="user.role == '1'">
+  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12" *ngIf="user.role == '1'">
     <div class="row no-gutters">
 
-      <div class="col-md-4 col-xl-4 col-sm-6" style="background: #c5d7ff;">
+      <div class="col-md-3 col-xl-3 col-sm-6" style="background: #c5d7ff;">
         <app-card [hidHeader]="true">
-          <span>My Investment Balance</span>
+          <span>Total Investment</span>
           <h3>{{card.investment_balance | currency}}</h3>
         </app-card>
       </div>
-      <div class="col-md-4 col-xl-4 col-sm-6" style="background: #c5d7ff;">
+      <div class="col-md-3 col-xl-3 col-sm-6" style="background: #c5d7ff;">
         <app-card [hidHeader]="true">
-          <span>My Withdrawal profits</span>
+          <span>Total Withdrawal</span>
           <h3>{{card.withdrawal_balance | currency}}</h3>
         </app-card>
       </div>
-      <div class="col-md-4 col-xl-2 col-sm-6" style="background: #c5d7ff;">
+
+      <div class="col-md-3 col-xl-3 col-sm-6" style="background: #c5d7ff;">
+        <app-card [hidHeader]="true">
+          <span>Active Investment</span>
+          <h3>{{card.investment | currency}}</h3>
+        </app-card>
+      </div>
+      <div class="col-md-3 col-xl-3 col-sm-6" style="background: #c5d7ff;">
         <app-card [hidHeader]="true">
           <span>Pending Investment</span>
           <h3>{{card.pendingInvest}}</h3>
         </app-card>
       </div>
-      <div class="col-md-4 col-xl-2 col-sm-6" style="background: #c5d7ff;">
+      <div class="col-md-3 col-xl-3 col-sm-6" style="background: #c5d7ff;">
         <app-card [hidHeader]="true">
           <span>Pending Withrawals</span>
           <h3>{{card.pendingWithdrawal}}</h3>
         </app-card>
       </div>
-      <div class="col-md-4 col-xl-4 col-sm-6" style="background: #c5d7ff;">
+      <div class="col-md-3 col-xl-3 col-sm-6" style="background: #c5d7ff;">
         <app-card [hidHeader]="true">
-          <span>Total Investment</span>
-          <h3>{{card.investment}}</h3>
+          <span>Total Investors</span>
+          <h3>{{card.users}}</h3>
         </app-card>
       </div>
-      <div class="col-md-4 col-xl-4 col-sm-6" style="background: #c5d7ff;">
-        <app-card [hidHeader]="true">
-          <span>Total Withdrawals</span>
-          <h3>{{card.withdrawal}}</h3>
-        </app-card>
-      </div>
-      <div class="col-md-4 col-xl-2 col-sm-6" style="background: #c5d7ff;">
+      <div class="col-md-3 col-xl-3 col-sm-6" style="background: #c5d7ff;">
         <app-card [hidHeader]="true">
           <span>Available Plans</span>
           <h3>{{card.plans}}</h3>
         </app-card>
       </div>
-      <div class="col-md-4 col-xl-2 col-sm-6" style="background: #c5d7ff;">
+      <div class="col-md-3 col-xl-3 col-sm-6" style="background: #c5d7ff;">
         <app-card [hidHeader]="true">
           <span>Double Investment</span>
           <h3><button type="button" class="btn btn-primary" data-toggle="modal"
@@ -62,64 +119,117 @@
   </div>
   <div class="col-sm-12" *ngIf="user.role == '2'">
     <div class="row no-gutters">
-
-      <div class="col-md-4 col-xl-4 col-sm-6" style="background: #c5d7ff;">
+      <div class="col-md-4 col-xl-3 col-sm-6" style="background: #c5d7ff;">
+        <app-card [hidHeader]="true">
+          <span>Profit Balance</span>
+          <h3>{{card.profit | currency}}</h3>
+        </app-card>
+      </div>
+      <div class="col-md-4 col-xl-3 col-sm-6" style="background: #c5d7ff;">
         <app-card [hidHeader]="true">
           <span>Investment Balance</span>
           <h3>{{card.investment_balance | currency}}</h3>
         </app-card>
       </div>
-      <div class="col-md-4 col-xl-4 col-sm-6" style="background: #c5d7ff;">
+      <div class="col-md-4 col-xl-3 col-sm-6" style="background: #c5d7ff;">
         <app-card [hidHeader]="true">
-          <span>Withdrawal Profits</span>
+          <span>Withdrawal Balance</span>
           <h3>{{card.withdrawal_balance | currency}}</h3>
         </app-card>
       </div>
-      <div class="col-md-4 col-xl-2 col-sm-6" style="background: #c5d7ff;">
+      <div class="col-md-2 col-xl-3 col-sm-6" style="background: #c5d7ff;">
         <app-card [hidHeader]="true">
           <span>Pending Investment</span>
           <h3>{{card.pendingInvest}}</h3>
         </app-card>
       </div>
-      <div class="col-md-4 col-xl-2 col-sm-6" style="background: #c5d7ff;">
+      <div class="col-md-2 col-xl-3 col-sm-6" style="background: #c5d7ff;">
         <app-card [hidHeader]="true">
           <span>Pending Withrawals</span>
           <h3>{{card.pendingWithdrawal}}</h3>
         </app-card>
       </div>
-      <div class="col-md-4 col-xl-4 col-sm-6" style="background: #c5d7ff;">
+      <div class="col-md-2 col-xl-3 col-sm-6" style="background: #c5d7ff;">
         <app-card [hidHeader]="true">
           <span>Total Investment</span>
           <h3>{{card.investment}}</h3>
         </app-card>
       </div>
-      <div class="col-md-4 col-xl-4 col-sm-6" style="background: #c5d7ff;">
+      <div class="col-md-2 col-xl-3 col-sm-6" style="background: #c5d7ff;">
         <app-card [hidHeader]="true">
           <span>Total Withdrawals</span>
           <h3>{{card.withdrawal}}</h3>
         </app-card>
       </div>
-      <div class="col-md-4 col-xl-4 col-sm-3" style="background: #c5d7ff;">
+      <div class="col-md-2 col-xl-3 col-sm-3" style="background: #c5d7ff; height: 96;">
         <app-card [hidHeader]="true">
-          <span>Available Plans</span>
-          <h3>{{card.plans}}</h3>
+          <span>Payment methods</span><br>
+          <div style="margin-top: 10px;">
+            <img src="https://img.icons8.com/officexs/16/000000/bitcoin.png" height="25" width="25" />
+            <img src="../../../assets/images/etf.png" height="25" width="25"/>
+          </div>
         </app-card>
       </div>
-      <!-- <div class="col-md-4 col-xl-2 col-sm-3" style="background: #c5d7ff;">
-        <app-card [hidHeader]="true">
-          <span>Double Investment</span>
-          <h3><button type="button" class="btn btn-primary" data-toggle="modal"
-            (click)="exampleModalPopoversLabel.show();"
-            class="btn btn-primary">{{pars(card.double) == 0 ? 'Activate' : Deactivate}}</button></h3>
-          </app-card>
-      </div> -->
     </div>
   </div>
   <!-- conversion-section end -->
-  <div class="col-xl-12">
+  <div class="col-xl-8 col-sm-12">
     <app-card cardTitle="Real Time Chart" [options]="true">
       <!-- <app-apex-chart chartID="daily-visitor-aa-cc" [chartConfig]="this.chartDB.dailyVisitorAACC" [xAxis]="dailyVisitorAxis"></app-apex-chart> -->
       <iframe src="https://widget.coinlib.io/widget?type=chart&theme=dark&coin_id=859&pref_coin_id=1505" width="100%" height="536px" scrolling="auto" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;line-height:14px;"></iframe>
+    </app-card>
+  </div>
+
+  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+    <app-card [hidHeader]="true">
+      <div class="row">
+        <div class="col-12">
+          <span>Total Referrals</span>
+          <h3>{{0}}</h3>
+          </div>
+          <!-- <div class="col-6">
+            <span>Referral Profit</span>
+            <h3>{{0}}</h3>
+          </div> -->
+      </div>
+    </app-card>
+    <app-card [hidHeader]="true">
+      <span>My Referral CODE: {{user.referral_code}}</span>
+      <p>
+        <button type="button" class="btn" style="background-color: rgba(0, 0, 0, 0.07)"
+        (click)="copyLinkAddress()">Copy Link</button></p>
+      <p><strong>Earn 5% of your first referral investment!</strong></p>
+    </app-card>
+    <app-card [hidHeader]="true">
+      <span>Top Referrals 24hrs</span>
+      <table class="table table-hover m-b-0">
+        <thead>
+          <tr>
+            <th>
+              <span>Referral
+                <a class="help"><i class="feather icon-help-circle f-16"></i></a>
+              </span>
+            </th>
+            <th>
+              <span>Referred
+                <a class="help"><i class="feather icon-help-circle f-16"></i></a>
+              </span>
+            </th>
+            <th>
+              <span>Referral profit
+                <a class="help"><i class="feather icon-help-circle f-16"></i></a>
+              </span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let ref of topInvestorsReferrals.reverse() | slice:0:5;">
+            <td>{{ref.code}}</td>
+            <td>{{ ref.count}}</td>
+            <td>{{ ref.count * 55 | currency}}</td>
+          </tr>
+        </tbody>
+      </table>
     </app-card>
   </div>
   <!-- account-section end -->
@@ -131,7 +241,6 @@
         <table class="table table-hover m-b-0">
           <thead>
             <tr>
-
               <th>
                 <span>Address
                   <a class="help"><i class="feather icon-help-circle f-16"></i></a>
@@ -203,6 +312,34 @@
       <button class="btn btn-primary event-btn m-2" type="button" (click)="confirm()">
         <span *ngIf="this.submitLoader" class="load-text"> Activate...</span>
         <span *ngIf="!this.submitLoader" class="btn-text">Activate</span>
+      </button>
+  </div>
+</app-ui-modal>
+<app-ui-modal #passwordModalPopoversLabel>
+  <div class="app-modal-header">
+    <h5 class="modal-title">Update User Password</h5>
+    <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="passwordModalPopoversLabel.hide()"><span aria-hidden="true">&times;</span></button>
+  </div>
+  <div class="app-modal-body">
+    <p>You updating a user password.</p>
+        <form method="POST" enctype="multipart/form-data">
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="inputAddress3">Enter user email</label>
+          <input type="email" class="form-control" id="inputAddress3" name="email" id="email">
+        </div>
+        <div class="form-group col-md-12">
+          <label for="inputAddress3">Enter password</label>
+          <input type="text" class="form-control" id="inputAddress3" name="password" id="update_password">
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="app-modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="passwordModalPopoversLabel.hide()">Close</button>
+      <button class="btn btn-primary event-btn m-2" type="button" (click)="updateUserPassword()">
+        <span *ngIf="this.submitLoader" class="load-text"> Updating...</span>
+        <span *ngIf="!this.submitLoader" class="btn-text">Update</span>
       </button>
   </div>
 </app-ui-modal>

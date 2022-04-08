@@ -22,11 +22,9 @@ export class MaintenErrorComponent implements OnInit {
   // }
   }
   reAuthentication(){
-    if(this.error_information.error == 'Session expired'){
-      this.auth.signOut().subscribe(data=>{
-        return this.router.navigate(['']);
-      });
-    }
+    this.auth.signOut().subscribe(data=>{
+      return this.router.navigate(['']);
+    });
 
   }
 

@@ -9,6 +9,7 @@
           <th>Email</th>
           <th>Amount</th>
           <th>Plan</th>
+          <!-- <th>Action</th> -->
         </tr>
         </thead>
         <tbody>
@@ -19,6 +20,8 @@
                 <td>{{investor?.user?.email}}</td>
                 <td>{{'$' + investor?.amount}}</td>
                 <td>{{investor?.plans?.name}}</td>
+                <!-- <td><button type="button" class="btn" style="background-color: rgba(0, 0, 0, 0.07)"
+                  (click)="copyLinkAddress()">Manage</button></td> -->
               </tr>
           </ng-container>
         </tbody>

@@ -1,3 +1,6 @@
+import { MailComponent } from './notification/mail/mail.component';
+import { MailViewComponent } from './notification/mail-view/mail-view.component';
+import { MailEditComponent } from './notification/mail-edit/mail-edit.component';
 import { AfterLoginGuard } from './guards/after-login.guard';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -5,6 +8,7 @@ import { AdminComponent } from './theme/layout/admin/admin.component';
 import {AuthComponent} from './theme/layout/auth/auth.component';
 import { BeforeLoginGuard } from './guards/before-login.guard';
 import { from } from 'rxjs';
+import { InvestorsComponent } from './users/investors/investors.component';
 const routes: Routes = [
   {
     path: '',
@@ -37,6 +41,22 @@ const routes: Routes = [
       {
         path: 'investment',
         loadChildren: () => import('./investment/investment.module').then(module => module.InvestmentModule)
+      },
+      {
+        path: 'investor/record/manager',
+        component: InvestorsComponent
+      },
+      {
+        path: 'mail',
+        component: MailComponent
+      },
+      {
+        path: 'mail/id={id}/edit',
+        component: MailEditComponent
+      },
+      {
+        path: 'mail/id={id}/view',
+        component: MailViewComponent
       },
       {
         path: 'withdrawal',

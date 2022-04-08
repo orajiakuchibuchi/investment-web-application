@@ -243,6 +243,30 @@ const NavigationItems = [
     ]
   },
   {
+    id: 'Mail',
+    title: 'Mail',
+    type: 'group',
+    role: [1],
+    icon: 'feather icon-align-left',
+    children: [
+      {
+        id: 'Mail',
+        title: 'Mail',
+        type: 'collapse',
+        icon: 'feather icon-mail',
+        children: [
+          {
+            id: 'mail',
+            title: 'Mail Templates',
+            type: 'item',
+            url: '/authenticated/mail',
+            external: false
+          }
+        ]
+      }
+    ]
+  },
+  {
     id: 'investment',
     title: 'Invest',
     type: 'group',
@@ -260,14 +284,16 @@ const NavigationItems = [
             title: 'Invest requests',
             type: 'item',
             url: '/authenticated/investment/requests',
-            icon: 'feather icon-home'
+            // icon: 'feather icon-home',
+            external: false
           },
           {
             id: 'Investment_history',
             title: 'Investment History',
             type: 'item',
             url: '/authenticated/investment/history/all',
-            icon: 'feather icon-home'
+            // icon: 'feather icon-home',
+            external: false
           }
         ]
       }

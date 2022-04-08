@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   url: 'http://127.0.0.1:8000/api',
-  website: 'https://topfinanceltd.com'
+  website: 'https://127.0.0.1:4200'
 };
 
 /*

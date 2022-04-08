@@ -15,6 +15,10 @@ export class InvestComponent implements OnInit {
     success:false,
     message: ''
   };
+  apiRes:any = {
+    status: null,
+    response: ''
+  };
   investForm: FormGroup;
   plans:any = [];
   images: any = [];
@@ -68,7 +72,8 @@ export class InvestComponent implements OnInit {
       this.submitLoader = true;
       this.BaseApiService.invest(formData).subscribe(data=>{
         if(data['status'] == '200'){
-          return this.router.navigate(['/authenticated/investment/history']);
+          // return this.router.navigate(['/authenticated/investment/history']);
+          this.apiRes.status = true;
         }else{
           alert(JSON.stringify(data['errors'], null, 4));
           this.submitLoader = false;
@@ -91,5 +96,8 @@ export class InvestComponent implements OnInit {
         alert('Failed to read clipboard contents:' + JSON.stringify(err, null, 4));
         console.error('Failed to read clipboard contents: ', err);
       });
+  }
+  investmentHistory(){
+    return this.router.navigate(['/authenticated/investment/history']);
   }
 }

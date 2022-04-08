@@ -26,7 +26,7 @@ export class UsdtComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit() {
-    this.BaseApiService.getBtcAddress().subscribe(data=>{
+    this.BaseApiService.getUsdtAddress().subscribe(data=>{
       this.address = data;
     })
     this.addAddressForm = this.formBuilder.group({

@@ -59,8 +59,8 @@
       <div class="dropdown-menu dropdown-menu-right profile-notification" ngbDropdownMenu>
         <div class="pro-head">
           <!-- <img src="{{getPicture(user?.user?.image_path)}}" class="img-radius" alt="User-Profile-Image"> -->
-          <span>{{user?.user?.email | titlecase}}</span>
-          <a (click)="logOut()" class="dud-logout" title="Logout" style="cursor: pointer !important;">
+          <span style="color: white;">{{user?.user?.email | titlecase}}</span>
+          <a (click)="logOut()" class="dud-logout" title="Logout" style="cursor: pointer !important;color: white;">
             <i class="feather icon-log-out"></i>
           </a>
         </div>

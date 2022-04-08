@@ -47,36 +47,36 @@ $inverse-color: $dark-color;
 $theme-border: #e2e5e8;
 
 // header
-$header-dark-background: #060606;
-$header-dark-text-color: #fff;
-$header-light-background: #fff;
+$header-dark-background: #b55f03;
+$header-dark-text-color: rgb(51, 195, 238);
+$header-light-background: #132d3a;
 $header-light-text-color: #101b33;
 
 // Menu
-$menu-dark-background: #060606;
+$menu-dark-background: #267aa7;
 // $menu-dark-text-color: #b5bdca;
 $menu-dark-text-color: #fdfdfd;
 
-$menu-light-background: #fff;
-$menu-light-text-color: #535763;
+$menu-light-background: #1d5877;
+$menu-light-text-color: #e3eef3;
 $menu-active-color: $primary-color;
 
-$dark-layout: darken(#060606,8%);
+$dark-layout: darken(#195d82,8%);
 $dark-layout-font: #adb7be;
 
 
 // Menu icon
-$menu-icon-color: #060606, #ff5252, #01a9ac ,#7759de , #00ACC1, $warning-color;
+$menu-icon-color: #0b4f74, #ff5252, #01a9ac ,#7759de , #00ACC1, $warning-color;
 // Header background
 $color-header-name: blue, red, purple, info, dark;
-$color-header-color: #060606, #ff5252, #7759de ,#00ACC1,#101b33;
+$color-header-color: rgb(34, 116, 170), #ff5252, #7759de ,#00ACC1,#101b33;
 // Menu background
 $color-menu-name: blue, red, purple, info, dark;
-$color-menu-color: #060606, #ff5252, #7759de ,#00ACC1,#101b33;
+$color-menu-color: #0b4f74, #ff5252, #7759de ,#00ACC1,#101b33;
 
 // Menu background gradient
 $color-menu-gradient-name: blue, red, purple, info, dark;
-$color-menu-gradient-color: linear-gradient(to bottom, #7759de 0%, #060606 100%),
+$color-menu-gradient-color: linear-gradient(to bottom, #7759de 0%, #0b4f74 100%),
 linear-gradient(to bottom, rgb(164, 69, 178) 0%, rgb(212, 24, 114) 52%, rgb(255, 0, 102) 100%),
 linear-gradient(to top, rgb(178, 117, 240) 0%, rgb(117, 117, 240) 100%) ,
 linear-gradient(to bottom, rgb(1, 169, 172) 0%, rgb(1, 219, 223) 100%),
@@ -84,17 +84,17 @@ linear-gradient(to bottom, rgb(36, 46, 62) 0%, rgb(58, 76, 103) 100%);
 
 // Active background color
 $color-active-name: blue, red, purple, info, dark;
-$color-active-color: #060606, #ff5252, #7759de ,#00ACC1,$dark-color;
+$color-active-color: #0b4f74, #ff5252, #7759de ,#00ACC1,$dark-color;
  // Menu title color
 $color-title-name: blue, red, purple, info, dark;
-$color-title-color: #060606, #ff5252, #7759de ,#00ACC1,$dark-color;
+$color-title-color: #0b4f74, #ff5252, #7759de ,#00ACC1,$dark-color;
 
 $theme-font-family: 'Mada', sans-serif;
 $theme-font-size: 14px;
 $theme-background: #f4f5fa;
 $theme-font-color: #535763;
 // $theme-heading-color: #111;
-$theme-heading-color: #060606;
+$theme-heading-color: #0b4f74;
 
 $color-name: c-blue,c-red,c-green,c-yellow,c-purple;
 $color-color: $primary-color,$danger-color,$success-color ,$warning-color ,$purple-color;

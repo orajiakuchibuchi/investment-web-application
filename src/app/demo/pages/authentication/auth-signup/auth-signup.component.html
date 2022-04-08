@@ -4,13 +4,13 @@
       <div class="row align-items-center text-center">
         <div class="col-md-12">
           <div class="card-body">
-            <!-- <img src="assets/images/logo-dark.png" alt="" class="img-fluid mb-4"> -->
-            <p class="img-fluid mb-4" style="font-size: 20px;
+            <img src="../../../../../assets/images/logo/logo_transparent.png" height="100" style="height: 100px;" alt="" class="img-fluid mb-4">
+            <!-- <p class="img-fluid mb-4" style="font-size: 20px;
             font-weight: bolder;">
             <a href="{{environment.website}}">
             <strong style="color: #cc9000;">Top </strong>  <span style="color: #000;">Finance Ltd</span>
           </a>
-          </p>
+          </p> -->
             <h4 class="mb-3 f-w-400">Sign up</h4>
               <form method="POST" [formGroup]="loginForm" (ngSubmit)="onSubmitRegister()" enctype="multipart/form-data">
                 <div class="input-group mb-3">
@@ -36,21 +36,31 @@
                     [ngClass]="{'error': (valdator().confirm_password.value != valdator().password.value || valdator().confirm_password.status == 'INVALID' && validation_response.isSubmitted)}" formControlName="confirm_password"
                       placeholder="Retype Password">
                 </div>
+
+                <div class="input-group mb-4">
+                  <div class="input-group-prepend pass-vis">
+                    <span class="input-group-text"><i class="feather icon-link"></i></span>
+                  </div>
+                  <input type="text" class="form-control" formControlName="referral"
+                      placeholder="Referral Code">
+                </div>
                 <div class="form-group text-left mt-2">
                   <div class="checkbox checkbox-primary d-inline">
                     <input type="checkbox" name="checkbox-fill-1" id="checkbox-fill-a1" checked="">
                     <label for="checkbox-fill-a1" class="cr"> Save credentials</label>
                   </div>
                 </div>
-                <div *ngIf="validation_response.failure.length !== 0">
+                <div *ngIf="validation_response.failure.length !== 0" id="failed">
                   <p class="error-m" *ngFor="let error of validation_response.failure">{{validation_response.failure}}</p>
                 </div>
                  <div *ngIf="validation_response.success.length !== 0">
                   <p class="success-m" *ngFor="let error of validation_response.success">{{validation_response.success}}</p>
                 </div>
 
-                <button class="btn btn-primary btn-block mb-4" id="submit" type="submit" style="background: #060606; border-color: #cc9000;">Sign up</button>
-                <p class="mb-2">Already have an account? <a [routerLink]="['/auth/signin']" class="f-w-400">Signin</a></p>
+                <button class="btn btn-primary btn-block mb-4" id="submit" type="submit" style="background: #0b4f74; border-color: #cc9000;">Sign up</button>
+                <p class="mb-2" id="account-exists">Already have an account? <a [routerLink]="['/auth/signin']" class="f-w-400">Signin</a></p>
+                <p class="mb-2 text-muted"><a href="https://t.me/royal_assets_ltd_bot" target="__blank" class="f-w-400">Contact our bot support</a></p>
+
               </form>
           </div>
         </div>
@@ -63,6 +73,6 @@
 </div>
 <style>
   #auth {
-    background-color: #060606 !important;
+    background-color: #0b4f74 !important;
 }
 </style>

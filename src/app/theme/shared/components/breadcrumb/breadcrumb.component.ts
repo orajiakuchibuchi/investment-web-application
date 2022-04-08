@@ -131,7 +131,7 @@ export class BreadcrumbComponent implements OnInit {
       }
     });
     this.navigationList = result;
-    this.titleService.setTitle(title + ' | Top Finance LTD');
+    this.titleService.setTitle(title + ' | Royal Assets LTD');
   }
 
 }

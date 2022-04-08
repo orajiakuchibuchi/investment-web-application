@@ -1,7 +1,7 @@
 import { environment } from './../../../../../environments/environment.prod';
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {Router} from "@angular/router";
+import {Router, ActivatedRoute} from "@angular/router";
 import { AuthenticationService } from 'src/app/services/authentication.service';
 @Component({
   selector: 'app-auth-signup',
@@ -24,14 +24,21 @@ export class AuthSignupComponent implements OnInit {
   loginForm: FormGroup;
   constructor(private formBuilder: FormBuilder,
     private router: Router,
+    private ActivatedRoute: ActivatedRoute,
     private AuthenticationService: AuthenticationService,) { }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
-      confirm_password: ['', Validators.required]
+      confirm_password: ['', Validators.required],
+      referral: ['']
     });
+    this.ActivatedRoute.params.subscribe(params=>{
+      if(params['referral'] && params['referral'].length > 0){
+        this.loginForm.controls.referral.setValue(params['referral']);
+      }
+    })
   }
   valdator(){
     return this.loginForm.controls;
@@ -53,6 +60,9 @@ export class AuthSignupComponent implements OnInit {
     let formData = new FormData();
     formData.append('email', this.loginForm.controls.email.value);
     formData.append('password', this.loginForm.controls.password.value);
+    if(this.loginForm.controls.referral.value.length > 0) {
+      formData.append('referral', this.loginForm.controls.referral.value);
+    }
     document.getElementById('submit').innerHTML='signing up';
     this.AuthenticationService.register(formData).subscribe(data=> {
       if(data['status'] !== '200'){
@@ -61,11 +71,19 @@ export class AuthSignupComponent implements OnInit {
         document.getElementById('submit').innerHTML='sign up';
         this.validation_response.disable = false;
       }else{
-        this.tokenSetup(data);
+        // this.tokenSetup(data);
+        alert(data['response']+'\nYou will be redirected to sign in page in 3 seconds');
         this.validation_response.success.push(data['response']);
+        setTimeout(()=>{
+          this.router.navigate(['auth/signin']);
+        },3000)
       }
     });
   }
+  insertAfter(referenceNode, newNode) {
+    referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+  }
+
   tokenSetup(data){
     this.AuthenticationService.handle({token: data['access_token'], user: data['user']});
     return this.router.navigate(['authenticated/dashboard/analytics']);

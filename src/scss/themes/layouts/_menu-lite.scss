@@ -134,6 +134,7 @@
     min-height: $header-height;
     padding: 0;
     top: 0;
+    // background: $header-light-background;
     background: $header-light-background;
     color: transparentize($header-light-text-color,0.2);
     width: 100%;
@@ -312,7 +313,7 @@
                 width: 30px;
                 height: 30px;
                 position: absolute;
-                background: rgba(255,255,255,0.25);
+                background: $header-light-background;
                 top: calc(#{$header-height/2} - 17px);
                 left: -8px;
                 border: none;
@@ -443,7 +444,7 @@
             overflow: hidden;
 
             .pro-head {
-                color: #fff;
+                color: rgba(32, 98, 184, 0.871);
                 padding: 15px;
                 position: relative;
                 background: $menu-dark-background;
@@ -452,7 +453,7 @@
                     margin-right: 10px;
                 }
                 .dud-logout {
-                    color: #fff;
+                    color: rgba(32, 98, 184, 0.871);
                     padding-right: 0;
                     position: absolute;
                     right: 0;
@@ -1324,7 +1325,7 @@
                 &:hover {
                     a {
                         box-shadow: none;
-                        color: #fff;
+                        color: rgb(95, 148, 184) !important;
                         background: transparent;
                     }
                 }
@@ -1633,10 +1634,10 @@
 
                     .profile-notification {
                         .pro-head {
-                            color: #fff;
+                            color: rgba(32, 98, 184, 0.871);
                             // background: $primary-color;
                             .dud-logout {
-                                color: #fff;
+                                color: rgba(32, 98, 184, 0.871);
                             }
                         }
                     }
@@ -2951,10 +2952,10 @@ $style-block-width: 400px;
 
                 .profile-notification {
                     .pro-head {
-                        color: #fff;
+                        color: rgba(32, 98, 184, 0.871);
                         background: nth($color-header-color,$i);
                         .dud-logout {
-                            color: #fff;
+                            color: rgba(32, 98, 184, 0.871);
                         }
                     }
                 }

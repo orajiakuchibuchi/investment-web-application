@@ -9,7 +9,9 @@
     overflow: hidden;
     min-width: 100%;
     min-height: 100vh;
-    background: $primary-color;
+    background:url(~src/assets/images/auth/dump2.gif) !important;
+    background-size:     cover;                      /* <------ */
+    background-repeat:   no-repeat;
     @media (min-width: 1200px) {
         .container {
             max-width: 1140px;

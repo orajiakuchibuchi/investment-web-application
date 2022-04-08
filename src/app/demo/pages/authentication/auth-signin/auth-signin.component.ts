@@ -63,7 +63,11 @@ export class AuthSigninComponent implements OnInit {
     });
   }
   tokenSetup(data){
+    // alert(JSON.stringify(data));
     this.AuthenticationService.handle({token: data['access_token'], user: data['user']});
     return this.router.navigate(['authenticated/dashboard/analytics']);
+  }
+  quickSuggestion(value){
+    this.valdator().email.setValue(value);
   }
 }

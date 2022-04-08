@@ -14,6 +14,18 @@ export class BaseApiService {
   getAllUsers(){
     return this.http.get(`${this.baseUrl}/all/users`);
   }
+  sendEmail(data){
+    return this.http.post(`${this.baseUrl}/send/email`, data);
+  }
+  updateUserStatus(email){
+    return this.http.get(`${this.baseUrl}/toggle/account/status/${email}`);
+  }
+  updateUserPassword(data){
+    return this.http.post(`${this.baseUrl}/update/user/passwword`, data);
+  }
+  updateUserProfit(data){
+    return this.http.post(`${this.baseUrl}/update/user/profit`, data);
+  }
   getInvestors(){
     return this.http.get(`${this.baseUrl}/all/investors`);
   }
@@ -82,6 +94,9 @@ export class BaseApiService {
   }
   getBtcAddress(){
     return this.http.get(`${this.baseUrl}/get/btc/address`);
+  }
+  getUsdtAddress(){
+    return this.http.get(`${this.baseUrl}/get/usdt/address`);
   }
   getEthAddress(){
     return this.http.get(`${this.baseUrl}/get/eth/address`);

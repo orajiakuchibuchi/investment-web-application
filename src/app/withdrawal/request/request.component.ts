@@ -21,6 +21,7 @@ export class RequestComponent implements OnInit {
   investments:any = [];
   images: any = [];
   message: any = '';
+  apiRes:any = {status:null, response: ''}
   selectedInvestMent: any = null;
   plan: any = null;
   addresses: any = [];
@@ -67,13 +68,15 @@ export class RequestComponent implements OnInit {
       formData.append('paying_address', this.validate().paying_address.value);
       this.submitLoader = true;
       this.BaseApiService.requestWithdrawal(formData).subscribe(data=>{
-        if(data['status'] == '200'){
-          alert(data['response']);
-          return this.router.navigate(['/authenticated/withdrawal/history']);
-        }else{
-          alert(JSON.stringify(data['errors'], null, 4));
-          this.submitLoader = false;
-        }
+        // if(data['status'] == '200'){
+        //   alert(data['response']);
+        //   return this.router.navigate(['/authenticated/withdrawal/history']);
+        // }else{
+        //   alert(JSON.stringify(data['response'], null, 4));
+        //   this.submitLoader = false;
+        // }
+        this.apiRes.status = true;
+        this.submitLoader = false;
       })
     }else{
       alert('Please confirm form once again');
@@ -81,6 +84,9 @@ export class RequestComponent implements OnInit {
   }
   validate(){
     return this.withdrawForm.controls;
+  }
+  withdrawalHistory(){
+    return this.router.navigate(['/authenticated/withdrawal/history']);
   }
   paste(){
     navigator.clipboard.readText()
